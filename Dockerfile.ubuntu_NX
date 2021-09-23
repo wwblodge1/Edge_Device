@@ -7,7 +7,6 @@ RUN apt-get update && apt-get install -y \
     git \
     python3.6 \
     python3-pip \
-    python-opencv \
     python3-opencv \
     mosquitto \
     mosquitto-clients \
@@ -20,3 +19,12 @@ RUN apt-get update && apt-get install -y \
     python3-wheel
 RUN pip3 install Cython
 RUN pip3 install numpy
+RUN apt-get clean
+
+RUN pip3 install paho-mqtt
+
+# Clean-up all files
+RUN apt-get -y autoremove
+RUN apt-get -y autoclean
+RUN rm -rf /var/cache/apt
+RUN rm -rf /tmp/*.deb
