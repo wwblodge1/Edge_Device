@@ -15,3 +15,4 @@ face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
 	# rc,png = cv2.imencode('.png', face)
 	# msg = png.tobytes()
 	# ...
+	#testing
