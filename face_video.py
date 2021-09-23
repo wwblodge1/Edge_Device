@@ -16,4 +16,4 @@ face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
 	# msg = png.tobytes()
 	# ...
 	#testing
-	#test! 
+	#test!!
