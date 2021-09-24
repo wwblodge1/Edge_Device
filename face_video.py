@@ -36,7 +36,7 @@ while(True):
 	# your logic goes here; for instance
 	# cut out face from the frame.. 
 	# rc,png = cv.imencode('.png', face)
-	# msg = png.tobytes()
+	# msg = png.tobytes() 
 
 	# q to quit 
 	if cv.waitKey(1) & 0xFF == ord('q'):
