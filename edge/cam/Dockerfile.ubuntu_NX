@@ -10,7 +10,7 @@ RUN pip install paho-mqtt
 RUN pip3 install Cython
 RUN pip3 install numpy
 WORKDIR /app
-COPY cam.py ./
+COPY face_video.py ./
 COPY haarcascade_frontalface_default.xml ./
 
 CMD ["python3","face_video.py"]

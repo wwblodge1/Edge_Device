@@ -12,13 +12,6 @@ LOCAL_MQTT_HOST="mosquitto-service"
 LOCAL_MQTT_PORT=1883
 LOCAL_MQTT_TOPIC="faces"
 
-#networking stuff
-if (len(sys.argv) != 2):
-    print("Start by using python3 face_video.py <broker_address>")
-    exit()
-else:
-    broker_addr = sys.argv[1]
-
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -28,7 +21,7 @@ def on_connect(client, userdata, flags, rc):
 
 client = mqtt.Client()
 client.on_connect = on_connect
-client.connect(broker_addr, 1883, 60)
+client.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
 
 time.sleep(1) 
 
