@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mosquitto-deployment
+spec:
+  selector:
+    matchLabels:
+      app: mosquitto
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: mosquitto
+    spec:
+      containers:
+      - name: mosquitto
+        image: wwblodge1/mosquitto:v1
+        ports:
+        - containerPort: 1883
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
