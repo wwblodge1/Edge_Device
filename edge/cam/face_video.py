@@ -20,8 +20,9 @@ def on_connect(client, userdata, flags, rc):
         print("Connection to broker failed!")
 
 client = mqtt.Client()
-client.on_connect = on_connect
+client.loop_start()
 client.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
+client.on_connect = on_connect
 
 time.sleep(1) 
 
@@ -30,9 +31,6 @@ cap = cv.VideoCapture(0)
 
 # Cascade face classifier
 face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
-
-# start stream 
-client.loop_start()
 
 # while camera is turned on
 while(True):
