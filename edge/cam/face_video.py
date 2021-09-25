@@ -48,7 +48,7 @@ while(True):
 	for (x,y,w,h) in faces:
 		crop_faces = gray[y:y+h, x:x+w] # changed from img to gray FYI to follow pnpn
 		cv.imshow("crop", crop_faces)
-		client.publish("face_app", bytearray(cv.imencode('.png', crop_faces)[1]), qos=1)
+		client.publish(LOCAL_MQTT_TOPIC, bytearray(cv.imencode('.png', crop_faces)[1]), qos=1)
 	
 	#OR from instructions
 	# your logic goes here; for instance

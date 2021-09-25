@@ -12,10 +12,10 @@ spec:
       labels:
         app: mosquitto
     spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: mosquitto
         image: wwblodge1/mosquitto:v1
         ports:
         - containerPort: 1883
-      hostNetwork: true
-      dnsPolicy: ClusterFirstWithHostNet

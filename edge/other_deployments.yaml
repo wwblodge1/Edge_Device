@@ -13,14 +13,18 @@ spec:
         app: mosquitto
     spec:
       containers:
+      - name: msg_forwarder
+        image: wwblodge1/msg_forwarder:latest
+      - name: msg_logger
+        image: wwblodge1/msg_logger:latest
       - name: cam
-        image: wwblodge1/cam:latest
+        image: wwblodge1/cam:v1
         securityContext:
           privileged: true
-      #   volumeMounts:
-      #   - mountPath: /dev/video0
-      #     name: dev-video0
-      # volumes:
-      # - name: dev-video0
-      #   hostPath:
-      #     path: /dev/video0
+        volumeMounts:
+        - mountPath: /dev/video0
+          name: dev-video0
+      volumes:
+      - name: dev-video0
+        hostPath:
+          path: /dev/video0
