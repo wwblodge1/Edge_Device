@@ -16,6 +16,6 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: mosquitto
-        image: wwblodge1/mosquitto:v1
+        image: wwblodge1/mosquitto:v1 #CAHNGE
         ports:
         - containerPort: 1883

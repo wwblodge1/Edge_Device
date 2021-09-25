@@ -13,10 +13,10 @@ spec:
         app: mosquitto
     spec:
       containers:
-      - name: msg_forwarder
-        image: wwblodge1/msg_forwarder:latest
-      - name: msg_logger
-        image: wwblodge1/msg_logger:latest
+      - name: forwarder
+        image: wwblodge1/forwarder:latest
+      - name: logger
+        image: wwblodge1/logger:latest
       - name: cam
         image: wwblodge1/cam:v1
         securityContext:

@@ -1,6 +1,4 @@
-'''''''''''''''
-Call steps: python3 face_video.py <broker addr>
-'''''''''''''''
+
 
 import cv2 as cv
 import numpy as np
@@ -13,16 +11,13 @@ LOCAL_MQTT_PORT=1883
 LOCAL_MQTT_TOPIC="faces"
 
 # The callback for when the client receives a CONNACK response from the server.
-def on_connect(client, userdata, flags, rc):
-    if rc == 0:
-        print("Connection to broker suceeded!")
-    else:
-        print("Connection to broker failed!")
-
-client = mqtt.Client()
-client.loop_start()
-client.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
-client.on_connect = on_connect
+def on_connect_local(client, userdata, flags, rc): 
+    print("connected to local broker with rc: " + str(rc))
+ 
+local_mqttclient = mqtt.Client()
+local_mqttclient.loop_start()
+local_mqttclient.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
+local_mqttclient.on_connect = on_connect_local
 
 time.sleep(1) 
 
@@ -48,7 +43,7 @@ while(True):
 	for (x,y,w,h) in faces:
 		crop_faces = gray[y:y+h, x:x+w] # changed from img to gray FYI to follow pnpn
 		cv.imshow("crop", crop_faces)
-		client.publish(LOCAL_MQTT_TOPIC, bytearray(cv.imencode('.png', crop_faces)[1]), qos=1)
+		local_mqttclient.publish(LOCAL_MQTT_TOPIC, bytearray(cv.imencode('.png', crop_faces)[1]), qos=1)
 	
 	#OR from instructions
 	# your logic goes here; for instance

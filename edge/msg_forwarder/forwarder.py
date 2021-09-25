@@ -27,7 +27,7 @@ print("Creating local instance")
 local_mqttclient = mqtt.Client()
 
 print("Bind call back function")
-local_mqttclient.on_connect = on_connect_local
+local_mqttclient.on_connect = on_connect
 
 print("Connect to local broker")
 local_mqttclient.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
