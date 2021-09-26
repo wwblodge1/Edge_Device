@@ -6,16 +6,15 @@ spec:
   selector:
     matchLabels:
       app: mosquitto
-  replicas: 1 
+  replicas: 1 # tells deployment to run 1 pods matching the template
   template:
     metadata:
       labels:
         app: mosquitto
     spec:
-      hostNetwork: true
-      dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: mosquitto
-        image: wwblodge1/mosquitto:v1 
+        image: mosquitto:v1
         ports:
         - containerPort: 1883
+
