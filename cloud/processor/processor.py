@@ -3,7 +3,7 @@ import boto3
 
 s3client = boto3.client('s3')
 
-LOCAL_NQTT_HOST="mosquitto-service"
+LOCAL_MQTT_HOST="mosquitto-service"
 MQTT_PORT=1883
 MQTT_TOPIC="faces"
 
