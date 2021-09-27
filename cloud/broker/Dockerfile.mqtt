@@ -1,4 +1,3 @@
-FROM alpine:x86_64
-ENV ARCH=aarch64
+FROM alpine:latest
 RUN apk add mosquitto
 CMD mosquitto
