@@ -12,4 +12,4 @@ RUN pip3 install boto3
 WORKDIR /app
 # example from https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_vide$
 COPY processor.py ./
-CMD ["python3","processor.py"]
+CMD ["python3", "-u", "processor.py"]
