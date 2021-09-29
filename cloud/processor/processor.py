@@ -11,7 +11,7 @@ count = 0
 def save_img(img_bytes):
     global count
     response = s3client.put_object( 
-    Bucket='alicehua-w251-hw3',
+    Bucket='251-hw3-whit',
     Body=img_bytes,
     Key='face{:d}.png'.format(count),
     ACL='public-read',
