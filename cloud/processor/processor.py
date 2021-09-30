@@ -1,16 +1,15 @@
 import paho.mqtt.client as mqtt
 import boto3
 
-# s3client = boto3.client('s3')
+s3client = boto3.client('s3')
 
 ####################
-s3 = boto3.resource("s3")
-bucket = s3.Bucket('251-hw3-whit')
-# now bucket is "attached" the S3 bucket name "mybucket"
-print(bucket)
-# s3.Bucket(name='mybucket')
+# s3 = boto3.resource("s3")
+# bucket = s3.Bucket('251-hw3-whit')
+# # now bucket is "attached" the S3 bucket name "mybucket"
+# print(bucket)
+# s3.Bucket(name='251-hw3-whit')
 ###################
-
 LOCAL_MQTT_HOST="mosquitto-service"
 MQTT_PORT=1883
 MQTT_TOPIC="faces"
