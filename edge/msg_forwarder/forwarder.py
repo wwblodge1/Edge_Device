@@ -5,7 +5,7 @@ LOCAL_MQTT_HOST="mosquitto-service"
 LOCAL_MQTT_PORT=1883
 LOCAL_MQTT_TOPIC="faces"
 
-REMOTE_MQTT_HOST="3.235.6.54"
+REMOTE_MQTT_HOST="mosquitto-service"
 REMOTE_MQTT_PORT=32364
 REMOTE_MQTT_TOPIC="faces"
 
@@ -37,6 +37,7 @@ remote_mqttclient = mqtt.Client()
 
 print("Connect to remote broker")
 remote_mqttclient.connect(REMOTE_MQTT_HOST, REMOTE_MQTT_PORT, 60)
+print("It has connected!")
 
 print("Publishing message...")
 local_mqttclient.on_message = on_message
