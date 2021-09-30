@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 import paho.mqtt.client as mqtt
+import time
 
 LOCAL_MQTT_HOST="mosquitto-service"
 LOCAL_MQTT_PORT=1883
@@ -14,11 +15,15 @@ local_mqttclient.loop_start()
 local_mqttclient.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
 local_mqttclient.on_connect = on_connect_local
 
+time.sleep(1) 
+
 cam = cv2.VideoCapture(0, cv2.CAP_V4L2)
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 while(True):
     # Capture frame-by-frame
+    time.sleep(1) 
+
     ret, frame = cam.read()
 
     # Our operations on the frame come here
