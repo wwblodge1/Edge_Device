@@ -1,5 +1,6 @@
 import paho.mqtt.client as mqtt
 import boto3
+import numpy as np
 
 s3client = boto3.client('s3')
 
@@ -36,8 +37,10 @@ def on_message(client,userdata, msg):
     print("Let's save some images...")
     try:
         print("message received! {} bytes".format(len(msg.payload)))    
-        # now we need to write the msg to s3
-        save_img(msg.payload)
+        image=np.frombuffer(msg.payload, dtype=np.uint8)
+        # #now we need to write the msg to s3
+        #png = cv2
+        save_img()
     except Exception:
         print("Unexpected error:", sys.exec_info()[0])
 
